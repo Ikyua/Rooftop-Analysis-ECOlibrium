@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rooftop Analysis</title>
+        <link rel="stylesheet" href="Rooftop.css">
+    </head>
+    <body>
+        <header>
+            <h1> Rooftop Analysis </h1>
+            <div class="buttons">
+                <button> Home </button>
+                <button> About </button>
+                <button> Email Us </button>
+            </div>
+        </header>
+        <div class = page-content>
+            <div class = "Analysis-Section">
+                <h2>  Upload a Rooftop Image for Analysis! </h2>
+                <div class = "upload-button">
+                    <button onclick="document.getElementById('fileInput').click()">Open Files </button>
+                    <input type="file" id="fileInput" style="display:none;" />
+                </div>
+                <div class = "uploaded-image">
+                    <!-- uploaded image w/ changes from ML      change color to green after submitted file        -->
+                </div>
+
+                <div class = "image-info">
+                    <!-- info about image from python & ML -->
+                </div>
+                <div class = "upload-button">
+                    <button onclick="document.getElementById('fileInput').click()">Choose File</button>
+                    <input type="file" id="saveFileInput" style="display:none;" />
+                </div>
+            </div>
+
+            <div class = "About">
+                <h2> Credits</h2>
+            </div>
+        </div>
+    </body>
+</html>
