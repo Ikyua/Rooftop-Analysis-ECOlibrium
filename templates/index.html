@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rooftop Analysis</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='Rooftop.css') }}">
+    </head>
+    <body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <h1> Rooftop Analysis</h1>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="https://yourwebsite.com">Website</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class = "page-content">
+    <!-- Home Section -->
+        <section id="home">
+            <h1>Upload a Rooftop Image for Analysis!</h1>
+
+            <form action="/" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" required>
+                <input type="submit" value="Upload Image">
+            </form>
+            <!-- this only appears when an image is uploaded to the website -->
+            {% if processed %}
+                <h2>Uploaded Image</h2>
+                <img src="{{ url_for('uploaded_file', filename=filename) }}" alt="Uploaded Image">
+
+                <h2>Albedo Value: {{ albedo }}</h2>
+
+                <h2>Processed Images</h2>
+                <h3>Grayscale</h3>
+                <img src="{{ url_for('processed_file', filename='GrayImage_<timestamp>.png') }}" alt="Grayscale Image">
+
+                <h3>Edges</h3>
+                <img src="{{ url_for('processed_file', filename='EdgeImage_<timestamp>.png') }}" alt="Edge Image">
+
+                <h3>Contrast</h3>
+                <img src="{{ url_for('processed_file', filename='ContrastedImage_<timestamp>.png') }}" alt="Contrasted Image">
+            {% endif %}
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About</h2>
+            <p>This project allows users to upload images of rooftops for analysis. The images are processed using OpenCV to detect edges, apply contrast, and more.</p>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>If you have any questions, feel free to reach out via email at info@loisaida.com.</p>
+        </section>
+    </div>
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 Loisaida Center. All rights reserved.</p>
+</footer>
+</body>
+</html>
