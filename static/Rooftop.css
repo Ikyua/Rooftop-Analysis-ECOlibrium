@@ -25,11 +25,17 @@ nav {
     margin: 20px;
 }
 
+nav h1 { 
+    font-size: 40px;
+}
+
 nav ul {
+    font-size: 25px;
+    margin: 40px 0;
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 50px;
 }
 
 nav ul li {
@@ -39,7 +45,7 @@ nav ul li {
 nav ul li a {
     padding: 10px 20px;
     background-color: #5a5a5a;
-    border-radius: 5px;
+    border-radius: 10px;
     font-weight: bold;
     transition: background-color 0.3s;
 }
@@ -49,22 +55,43 @@ nav ul li a:hover {
 }
 
 
+/* Image Uploading */
+input {
+    font-size: 25px;
+}
+
+#select-image {
+    border: none;
+    color: white;
+    text-decoration: none;
+}
+
+#upload-image {
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 8px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
 /* Section Styling */
 section {
     padding: 60px 20px;
-    margin: 40px auto;
-    max-width: 800px;
+    margin: 30px auto;
+    max-width: 1000px;
     text-align: center;
     background-color: #383a40;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 section h1, section h2 {
-    margin-bottom: 20px;
-}
+    font-size: 30px;
+    margin: 40px 0;}
 
 section p {
-    font-size: 18px;
+    font-size: 25px;
     line-height: 1.6;
 }
 
