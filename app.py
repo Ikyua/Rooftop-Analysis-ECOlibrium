@@ -61,7 +61,8 @@ def processed_file(filename):
 
 
 def get_average_pixel_brightness(image_path) -> float:
-    # Open the image
+    # Input: Image Path
+    # Output: Albedo value scrapped from the image
     image = Image.open(image_path)
 
     # Convert image to RGB if it's not already in that mode
@@ -85,7 +86,8 @@ def get_average_pixel_brightness(image_path) -> float:
 
 
 def process_image(image_path, save_directory) -> None:
-    # Load the image
+    # Input: Image Path, Directory
+    # Output: Images saved to directory with different alterations
     original_image = cv2.imread(image_path)
 
     if original_image is None:
@@ -109,6 +111,8 @@ def process_image(image_path, save_directory) -> None:
 
 
 def save_image(directory, file_name, image) -> None:
+    # Input: Chosen Directory, File Name, Image
+    # Output: Saving a file with unique identifiers to chosen directory
     try:
         if not os.path.exists(directory):
             os.makedirs(directory)
@@ -125,6 +129,8 @@ def save_image(directory, file_name, image) -> None:
 
 
 def resize_image(image, width):
+    # Input: Image, Desired Width
+    # Output: Resized image
     (h, w) = image.shape[:2]
     aspect_ratio = h / w
     new_height = int(width * aspect_ratio)
