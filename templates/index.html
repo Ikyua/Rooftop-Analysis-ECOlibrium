@@ -23,44 +23,47 @@
 
     <div class = "page-content">
         <!-- Instruction Section -->
-        <section id = instructions>
-            <h1> Instructions</h1>
-            <p> <b> 1) </b> Obtain images from the <strong >'Google Earth' </strong>Button go to any location you'd like to see.
-                It's very important that you screenshot images in <strong> 2D mode</strong>, as 3D isn't as clear and will give you false values.
-            </p>
-
-            <p> <b> 2) </b>Make sure that the images you submit are close screenshots of the building, where every single pixel full contains the rooftop.
-                <strong>Failure to do so will give you false values as well.</strong>
-            </p>
-
-            <p> <b> 3) </b>Insert an image on the left-hand side button. After image is submitted, click <strong>'Upload Image'</strong>
-                to view the image with your albedo value!</p>
+        <section class="instruction-settings">
+            <h1>Instruction Settings</h1>
+            <h2>How to Use This Form</h2>
+            <p>Follow the steps below to complete your form submission:</p>
+            <ol>
+                <li>Enter your street address in the first input box.</li>
+                <li>Fill out the city, state, and zip code fields.</li>
+                <li>Upload the image by selecting a file from your device.</li>
+                <li>Once all information is filled, click the "Upload Image" button.</li>
+            </ol>
+            <p>If you face any issues, ensure all fields are correctly filled before submitting.</p>
         </section>
         <!-- Home Section -->
         <section id="home">
             <h1>Upload a Rooftop Image for Analysis!</h1>
 
             <form action="/" method="post" enctype="multipart/form-data">
-                <input id= "select-image" type="file" name="file" required>
+                <input class = "address-button" id="street" type="text" name="street" placeholder="Street Address" required>
+                <input class = "address-button" id="city" type="text" name="city" placeholder="City" required>
+                <input class = "address-button" id="state" type="text" name="state" placeholder="State" required>
+                <input class = "address-button" id="zip" type="text" name="zip" placeholder="Zip Code" required>
+                <br>
+                <input id="select-image" type="file" name="file" required>
                 <input id="upload-image" type="submit" value="Upload Image">
+
             </form>
             <!-- this only appears when an image is uploaded to the website -->
             {% if processed %}
                 <h2>Uploaded Image | Albedo Value: {{ albedo }}</h2>
                 <img src="{{ url_for('uploaded_file', filename=filename) }}" alt="Uploaded Image">
-            
+
             {% endif %}
         </section>
 
         <!-- About Section -->
         <section id="about">
             <h2>About</h2>
-            <p>This project allows users to upload images of rooftops for analysis. We analyze the images for albedo, and other factors to
-                improve energy efficiency for users if they were to paint their rooftops white.
-            </p>
-            <p>
-                The albedo value will be ranging from a scale of 0 - 1, where 0 is black, and 1 is white. The closer to 1, the better your
-                buildings' energy usage will be.
+            <p>This project enables users to upload rooftop images for analysis. We assess these images to determine albedo and other
+                factors that could enhance energy efficiency if users choose to paint their rooftops white. The albedo value
+                ranges from 0 to 1, where 0 represents black and 1 represents white. The closer the value is to 1, the more
+                efficient your building’s energy usage becomes.
 
             </p>
         </section>
