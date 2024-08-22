@@ -18,14 +18,13 @@ body {
 
 /* Navigation Bar Styling */
 nav {
-    background-color: #444;
     padding: 15px;
     border-radius: 8px;
     text-align: center;
     margin: 20px;
 }
 
-nav h1 { 
+nav h1 {
     font-size: 40px;
 }
 
@@ -53,7 +52,6 @@ nav ul li a {
 nav ul li a:hover {
     background-color: #666;
 }
-
 
 /* Image Uploading */
 input {
@@ -88,10 +86,12 @@ section {
 
 section h1, section h2 {
     font-size: 30px;
-    margin: 40px 0;}
+    margin: 40px 0;
+}
 
 section p {
     font-size: 25px;
+    margin: 20px 0;
     line-height: 1.6;
 }
 
