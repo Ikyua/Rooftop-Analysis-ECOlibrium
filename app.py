@@ -24,28 +24,44 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
+# Function to get a timestamp string
+def get_timestamp():
+    return datetime.now().strftime('%Y%m%d_%H%M%S')
+
+
+# Function to build a unique filename from address parts and a timestamp
+def build_filename(street, city, state, zip_code, extension):
+    address_filename = f"{street}-{city}-{state}-{zip_code}".replace(' ', '-')
+    return secure_filename(f"{address_filename}_{get_timestamp()}.{extension}")
+
+
 @app.route('/', methods=['GET', 'POST'])
 def upload_image():
     if request.method == 'POST':
-        # Check if a file was uploaded
         if 'file' not in request.files:
             return redirect(request.url)
+
+        # Collect address inputs
+        street = request.form.get('street', '').strip()
+        city = request.form.get('city', '').strip()
+        state = request.form.get('state', '').strip()
+        zip_code = request.form.get('zip', '').strip()
+
         file = request.files['file']
-        if file.filename == '':
+        if file.filename == '' or not allowed_file(file.filename):
             return redirect(request.url)
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            file.save(file_path)
 
-            # Process the image and get albedo/brightness
-            albedo = get_average_pixel_brightness(file_path)
+        # Generate the filename using address parts and a timestamp
+        extension = file.filename.rsplit('.', 1)[1].lower()
+        filename = build_filename(street, city, state, zip_code, extension)
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(file_path)
 
-            # Process the image using your OpenCV functions
-            process_image(file_path, app.config['PROCESSED_FOLDER'])
+        # Process the image and get albedo/brightness
+        albedo = get_average_pixel_brightness(file_path)
+        process_image(file_path, app.config['PROCESSED_FOLDER'])
 
-            # Render the template with the albedo value and filename
-            return render_template('index.html', processed=True, filename=filename, albedo=albedo)
+        return render_template('index.html', processed=True, filename=filename, albedo=albedo)
 
     return render_template('index.html', processed=False)
 
@@ -63,69 +79,45 @@ def processed_file(filename):
 def get_average_pixel_brightness(image_path) -> float:
     # Input: Image Path
     # Output: Albedo value scrapped from the image
-    image = Image.open(image_path)
-
-    # Convert image to RGB if it's not already in that mode
-    if image.mode != 'RGB':
-        image = image.convert('RGB')
-
-    # Get the pixel data and calculate the average brightness (albedo)
-    pixels = image.getdata()
-    total_brightness = 0
+    image = Image.open(image_path).convert('RGB')
+    pixels = list(image.getdata())
     num_pixels = len(pixels)
-
-    for pixel in pixels:
-        # Calculate brightness using the luminance formula
-        brightness = (0.299 * pixel[0] + 0.587 * pixel[1] + 0.114 * pixel[2]) / 255
-        total_brightness += brightness
-
-    # Calculate the average brightness
-    average_brightness_value = total_brightness / num_pixels
-
-    return round(average_brightness_value, 2)
+    total_brightness = sum((0.299 * r + 0.587 * g + 0.114 * b) / 255 for r, g, b in pixels)
+    return round(total_brightness / num_pixels, 2)
 
 
 def process_image(image_path, save_directory) -> None:
     # Input: Image Path, Directory
     # Output: Images saved to directory with different alterations
     original_image = cv2.imread(image_path)
-
     if original_image is None:
         print(f"Error: Image not found at {image_path}")
         return
 
-    # Resize the image
-    resized_image = resize_image(original_image, 300)
+    # Process and save multiple variations of the image
+    save_variations(original_image, save_directory)
 
-    # Convert to grayscale and save
-    gray_image = convert_to_grayscale(resized_image)
-    save_image(save_directory, 'GrayImage', gray_image)
 
-    # Detect edges and save
-    edge_image = detect_edges(resized_image)
-    save_image(save_directory, 'EdgeImage', edge_image)
+def save_variations(image, directory) -> None:
+    # Input: Image & Directory to Save
+    # Output: Images will be saved with their proper names, and variations.
+    variations = {
+        'GrayImage': convert_to_grayscale(image),
+        'EdgeImage': detect_edges(image),
+        'ContrastedImage': apply_contrast(image)
+    }
 
-    # Apply contrast and save
-    contrasted_image = apply_contrast(resized_image)
-    save_image(save_directory, 'ContrastedImage', contrasted_image)
+    for name, processed_image in variations.items():
+        save_image(directory, name, processed_image)
 
 
 def save_image(directory, file_name, image) -> None:
     # Input: Chosen Directory, File Name, Image
     # Output: Saving a file with unique identifiers to chosen directory
-    try:
-        if not os.path.exists(directory):
-            os.makedirs(directory)
-
-        # Unique names for all images
-        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        unique_file_name = f"{file_name}_{timestamp}.png"
-        save_path = os.path.join(directory, unique_file_name)
-
-        cv2.imwrite(save_path, image)
-        print(f"Image saved: {save_path}")
-    except Exception as e:
-        print(f"Error saving image: {e}")
+    unique_file_name = f"{file_name}_{get_timestamp()}.png"
+    save_path = os.path.join(directory, unique_file_name)
+    cv2.imwrite(save_path, image)
+    print(f"Image saved: {save_path}")
 
 
 def resize_image(image, width):
