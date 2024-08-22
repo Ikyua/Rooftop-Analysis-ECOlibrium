@@ -10,7 +10,7 @@ app = Flask(__name__)
 # Configuration for file uploads
 UPLOAD_FOLDER = 'uploads/'
 PROCESSED_FOLDER = 'processed-images/'
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['PROCESSED_FOLDER'] = PROCESSED_FOLDER
 
