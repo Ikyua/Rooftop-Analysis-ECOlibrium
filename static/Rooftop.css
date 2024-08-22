@@ -54,24 +54,84 @@ nav ul li a:hover {
 }
 
 /* Image Uploading */
-input {
-    font-size: 25px;
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Spacing between form fields */
+}
+
+.address-button {
+    background-color: #5a5a5a;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #666;
+    border-radius: 8px;
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+.address-button:focus {
+    outline: none;
+    border-color: #888;
 }
 
 #select-image {
     border: none;
+    background-color: #444;
     color: white;
-    text-decoration: none;
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 320px;
+}
+
+#select-image:hover {
+    background-color: #555;
 }
 
 #upload-image {
-    background-color: white;
+    background-color: #28a745;
     border: none;
-    color: black;
-    padding: 8px;
-    text-decoration: none;
-    margin: 4px 2px;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 8px;
     cursor: pointer;
+    width: 320px;
+    transition: background-color 0.3s;
+}
+
+#upload-image:hover {
+    background-color: #218838;
+}
+
+/*Instruction Settings*/
+.instruction-settings {
+    max-width: 1000px;
+    border-radius: 10px;
+    line-height: 1.6;
+}
+
+.instruction-settings h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.instruction-settings h2 {
+    font-size: 28px;
+}
+
+.instruction-settings p {
+    font-size: 20px;
+    text-align: justify;
+}
+
+.instruction-settings ol {
+    font-size: 20px;
+    margin: 0 20px;
 }
 
 /* Section Styling */
@@ -90,11 +150,10 @@ section h1, section h2 {
 }
 
 section p {
-    font-size: 25px;
+    font-size: 20px;
     margin: 20px 0;
     line-height: 1.6;
 }
-
 
 /* Image Display Styling */
 #image-display {
