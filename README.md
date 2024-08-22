@@ -1,21 +1,23 @@
 # Rooftop-Analysis-ECOlibrium'
 
-ECOLIBRIUM - Loisaida: Rooftop Analysis 2024 
+ECOLIBRIUM - Loisaida: Rooftop Analysis 2024 (Team: Kyle Silvestre, Khalil )
 
-Objective: Analyze rooftops to assess the Urban Heat Island effect, focusing on albedo (color), and it's impacton building temperature. 
+Objective: Analyze rooftops to improve energy efficency & energy usage of residents. We focus on looking at building's albedo 
+primarily in the future hope to identify and determine how solar panels, hvac units, construction, etc. Impact a building's energy usage. 
 
-Approach:
-- Albedo Mapping:
-  - Use albedo values to model energy consumption and temperature changes
-- Rooftop Coverage:
-  - Implement object detection and segmenation to anaylze rootftop coverage and features
-
-Tools:
-- Data Collection:
-  - Screenshots of buildings from Google Earth in 2D.
-- ML Frameworks:
-  - PyTorch, Tensorflow
-- Front-End
-  - HTML, CSS, JavaScript
-- Back-end:
-  - Flask 
+Tools: 
+  - IDE:
+    - IntelliJ
+  - Languages used:
+    - Python
+    - HTML
+    - CSS
+  - Backend:
+    - Python
+  = Frontend:
+    - HTML
+    - CSS
+Libraries to download:
+  - Flask (for communciations between back & frontend
+  - PIL  
+  - CV2  (image processing)
