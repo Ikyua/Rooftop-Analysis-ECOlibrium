@@ -1,6 +1,6 @@
 # Rooftop-Analysis-ECOlibrium'
 
-ECOLIBRIUM - Loisaida: Rooftop Analysis 2024 (Team: Kyle Silvestre, Khalil )
+ECOLIBRIUM - Loisaida: Rooftop Analysis 2024 (Team: Kyle Silvestre, Khalil Allwood )
 
 Objective: Analyze rooftops to improve energy efficency & energy usage of residents. We focus on looking at building's albedo 
 primarily in the future hope to identify and determine how solar panels, hvac units, construction, etc. Impact a building's energy usage. 
