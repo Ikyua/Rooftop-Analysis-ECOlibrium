@@ -7,6 +7,7 @@ Objective: We focus on the albedo of a building's roof primarily in the future h
 Tools: 
   - IDE:
     - IntelliJ
+    - Visual Studio Code
   - Languages used:
     - Python
     - HTML
@@ -16,7 +17,9 @@ Tools:
   = Frontend:
     - HTML
     - CSS
-Libraries to download:
+Some libraries to download:
   - Flask (for communciations between back & frontend
   - PIL  
   - CV2  (image processing)
+  - Torch(for the deep learning models)
+  - Geemap (for getting geopspatial data)
