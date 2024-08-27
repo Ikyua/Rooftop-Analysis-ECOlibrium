@@ -42,7 +42,5 @@ See also the list of [contributors](https://github.com/Ikyua/Rooftop-Analysis-EC
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Paul Garrin 
 
