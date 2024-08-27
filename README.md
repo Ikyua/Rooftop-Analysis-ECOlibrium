@@ -1,24 +1,48 @@
-# Rooftop-Analysis-ECOlibrium'
+# ECOLIBRIUM - Loisaida: Rooftop Analysis 2024 
 
-ECOLIBRIUM - Loisaida: Rooftop Analysis 2024 (Team: Kyle Silvestre, Khalil Allwood )
+This project utilizes Flask and HTML to transfer images through each applications to produce and visualizle visual results to the user.
 
-Objective: Albedo is "whiteness" of a surface but more specifically it is a measure of how much light a surface can reflect when a light is shined upon it. We focus on the estimating the albedo of a building's roof using deep learning. The theory here is that having roof with a high albedo will cool the interior and surrounding area of the building, and consequently, lower the need for using electricity for cooling. In the future, we hope to find a way to reduce the urban island heat effect that cities tend to be affected by and consequently lowering the demand on energy for cooling; especially, during warmer periods in the year.  
-Tools: 
-  - IDE:
-    - IntelliJ
-    - Visual Studio Code
-  - Languages used:
-    - Python
-    - HTML
-    - CSS
-  - Backend:
-    - Python
-  = Frontend:
-    - HTML
-    - CSS
-Some libraries to download:
-  - Flask (for communciations between back & frontend
-  - PIL  
-  - CV2  (image processing)
-  - Torch(for the deep learning models)
-  - Geemap (for getting geopspatial data)
+
+Albedo refers to the reflectivity or 'whiteness' of a surface, specifically how much light it reflects when illuminated. Our research focuses on estimating the albedo of building roofs using deep learning. The idea is that roofs with higher albedo can help cool the building’s interior and surrounding environment, thereby reducing the need for energy-intensive cooling systems. In the future, we aim to explore ways to mitigate the urban heat island effect, which significantly impacts cities, ultimately reducing energy demand during warmer periods of the year.
+
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+### Prerequisites
+
+What things you need to install the software and how to install them
+
+- [IntelliJ](https://www.jetbrains.com/help/idea/plugin-overview.html) (free for students) 
+- [Visual Studio Code](https://code.visualstudio.com/download) (free for general use) 
+
+### Installing
+
+Setting up your environment: 
+
+Open up your termainal in VS Code: Shortcut (CRTL + Shift + '`')
+
+Use the following commands to download each library used in the project
+
+- pip install Flask
+- pip install opencv-python
+- pip install pillow
+
+## Built With
+
+* [Flask](https://flask.palletsprojects.com/en/3.0.x/) - Backend
+
+## Authors
+
+* ** Kyle Silvestre ** - *Initial work* - [Ikyua](https://github.com/ikyua)
+
+See also the list of [contributors](https://github.com/Ikyua/Rooftop-Analysis-ECOlibrium) who participated in this project.
+
+
+## Acknowledgments
+
+* Hat tip to anyone whose code was used
+* Inspiration
+* etc
+
