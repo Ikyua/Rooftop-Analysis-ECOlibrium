@@ -14,7 +14,6 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them
 
-- [IntelliJ](https://www.jetbrains.com/help/idea/plugin-overview.html) (free for students) 
 - [Visual Studio Code](https://code.visualstudio.com/download) (free for general use) 
 
 ### Installing
@@ -36,9 +35,6 @@ Use the following commands to download each library used in the project
 ## Authors
 
 * ** Kyle Silvestre ** - *Initial work* - [Ikyua](https://github.com/ikyua)
-
-See also the list of [contributors](https://github.com/Ikyua/Rooftop-Analysis-ECOlibrium) who participated in this project.
-
 
 ## Acknowledgments
 
